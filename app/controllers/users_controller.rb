@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if user
       render json: user
     else
-      render json: {message: "No such user found"}, status: :unauthorized
+      render json: {error: "No such user found"}, status: :unauthorized
     end
     
   end
