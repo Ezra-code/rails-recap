@@ -10,7 +10,13 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user
+    user = User.find(id: session[:user_id])
+    if user
+      render json: user
+    else
+      render json: {message: "No such user found"}, status: :unauthorized
+    end
+    
   end
 
   # POST /users
